@@ -11,11 +11,23 @@
         // Because we imported react at the top we can access to react object
         // 괄호 안에 있는 건 무조건 html 태그와 같은 이름이어야 함 ("span") 
         const root = document.getElementById("root");
-        const span = React.createElement(
-            "span",
-            {id: "sexy-span", style: {color: "red"} },
-            "Hello I'm a span"
-            );
-        ReactDOM.render(span, root)
+        // 1. Create the element
+        const h3 = React.createElement("h3", // 2. choose the html tag "h3"
+        // 3. Register events
+        { 
+            id: "title",
+            onMouseEnter: () => console.log("mouse enter")
+
+        }, "Hello I'm a span");
+        const btn = React.createElement(
+            "button",
+            {
+                onClick: () => console.log("I'm Clicked"),
+                style: {
+                    backgroundColor:"tomato"
+                }
+            }, "Click me");
+        const container = React.createElement("div", null, [h3, btn])
+        ReactDOM.render(container, root)
     </script>
 </html>
